@@ -20,6 +20,22 @@ margin:auto;
 padding:40px;
 }
 
+.navbar{
+position:sticky;
+top:0;
+background:#020617;
+padding:12px;
+text-align:center;
+z-index:1000;
+}
+
+.navbar a{
+margin:0 15px;
+color:white;
+font-weight:bold;
+text-decoration:none;
+}
+
 .header{
 text-align:center;
 }
@@ -58,7 +74,10 @@ border-radius:6px;
 margin-bottom:25px;
 }
 
-.project{
+.project-card{
+background:#1e293b;
+padding:15px;
+border-radius:8px;
 margin-bottom:12px;
 }
 
@@ -67,19 +86,40 @@ color:white;
 text-decoration:none;
 }
 
+.resume-btn{
+background:#38bdf8;
+border:none;
+padding:10px 18px;
+border-radius:6px;
+font-weight:bold;
+cursor:pointer;
+margin-top:15px;
+}
+
 </style>
 
 </head>
 
 <body>
 
+<div class="navbar">
+
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#achievements">Achievements</a>
+<a href="#contact">Contact</a>
+
+</div>
+
 <div class="container">
 
-<div class="header">
+<div class="header" id="about">
 
 <h1>Punit Kumar Beura</h1>
 
-<img src="file_00000000df5472069a522d7f454e91be (1).png" width="180">
+<img src="file_00000000df5472069a522d7f454e91be (1).png">
 
 <p class="tagline">
 Data Scientist | Machine Learning | Advanced Analytics
@@ -93,10 +133,15 @@ Over the years he has worked with organizations including Bosch Rexroth, Amazon,
 He is passionate about building intelligent analytical systems, applying machine learning to real world problems, and enabling strategic decision making through data driven insights.
 </p>
 
+<p>
+<a href="https://drive.google.com/" target="_blank">
+<button class="resume-btn">Download Resume</button>
+</a>
+</p>
+
 </div>
 
-
-<h2>Technical Skills</h2>
+<h2 id="skills">Technical Skills</h2>
 
 <div class="skills">
 
@@ -119,9 +164,7 @@ He is passionate about building intelligent analytical systems, applying machine
 
 </div>
 
-
-<h2>Professional Experience</h2>
-
+<h2 id="experience">Professional Experience</h2>
 
 <div class="job">
 
@@ -134,7 +177,6 @@ Work In Progress ....
 
 </div>
 
-
 <div class="job">
 
 <b>Mahindra & Mahindra</b><br>
@@ -145,7 +187,6 @@ Led analytics and MIS reporting initiatives supporting senior leadership. Built 
 </p>
 
 </div>
-
 
 <div class="job">
 
@@ -158,7 +199,6 @@ Developed customer funnel analytics, CRM integrated dashboards, and business int
 
 </div>
 
-
 <div class="job">
 
 <b>Amazon Development Center</b><br>
@@ -169,7 +209,6 @@ Performed large scale data analysis identifying pricing trends, revenue drivers,
 </p>
 
 </div>
-
 
 <div class="job">
 
@@ -182,41 +221,39 @@ Developed operational dashboards and product analytics insights highlighting per
 
 </div>
 
+<h2 id="projects">Samples & Projects</h2>
 
-<h2>Samples & Projects</h2>
-
-<div class="project">
+<div class="project-card">
 <a href="https://drive.google.com/drive/folders/1j1bcnCgIbfkTPb0wGjMZf_2hFMG_VrrK">
 No Copyright Free Bundle Templates (Self Creation)
 </a>
 </div>
 
-<div class="project">
+<div class="project-card">
 <a href="https://docs.google.com/presentation/d/1ilI6X-kk4iW1M0JH5gupDHrB7piIDkJ_0HY6wPwNRPI/edit">
 Freelancing (IRCTC) — Decision Making PPT
 </a>
 </div>
 
-<div class="project">
+<div class="project-card">
 <a href="https://docs.google.com/presentation/d/1YHNdmUyQp7Sedyk8FLKDFCgfl-5fXvKB/edit">
 Freelancing (Kapture) — Decision Making PPT
 </a>
 </div>
 
-<div class="project">
+<div class="project-card">
 <a href="https://drive.google.com/file/d/1FKmUc5OK2zxBFstifMeMRax-rk_3cC1X/view">
 Freelancing (Matter Motors) — Decision Making PPT
 </a>
 </div>
 
-<div class="project">
+<div class="project-card">
 <a href="https://drive.google.com/file/d/1tfFooKMJZoP_E8Jt51I1C34wplyw3dfE/view">
 Power BI Dashboard — Thar Roxx Capacity Dashboard
 </a>
 </div>
 
-
-<h2>Achievements</h2>
+<h2 id="achievements">Achievements</h2>
 
 <p>
 Google Hackathon 2019 — Ranked 252
@@ -231,7 +268,6 @@ Filed Patent Holder — Institute Of Universal Physics
 Article: "Unified Nucleocosmic Consciousness: A Theory of Atomic Unity and Global Oneness"
 </p>
 
-
 <h2>Education</h2>
 
 <p>
@@ -242,8 +278,7 @@ PGDM Strategy & Leadership — IMT Ghaziabad
 B.Tech Mechanical Engineering — IIT Kharagpur
 </p>
 
-
-<h2>Contact</h2>
+<h2 id="contact">Contact</h2>
 
 <p>Email: punitbeura@gmail.com</p>
 
