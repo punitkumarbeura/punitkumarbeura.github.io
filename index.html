@@ -7,12 +7,69 @@
 
 <style>
 
+/* GLOBAL */
+
 body{
-font-family: Arial;
-background:#0f172a;
-color:white;
+font-family: "Courier New", monospace;
+background:#000;
+color:#facc15;
 margin:0;
+overflow-x:hidden;
 }
+
+/* MATRIX CANVAS */
+
+#matrix{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+/* SCANLINES */
+
+.scanlines{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+background:repeating-linear-gradient(
+0deg,
+rgba(255,255,255,0.03),
+rgba(255,255,255,0.03) 1px,
+transparent 1px,
+transparent 3px
+);
+}
+
+/* NAVBAR */
+
+.navbar{
+position:sticky;
+top:0;
+background:#000;
+padding:12px;
+text-align:center;
+border-bottom:1px solid #facc15;
+}
+
+.navbar a{
+margin:0 15px;
+color:#facc15;
+font-weight:bold;
+text-decoration:none;
+}
+
+.navbar a:hover{
+text-shadow:0 0 10px #facc15;
+}
+
+/* CONTAINER */
 
 .container{
 max-width:1000px;
@@ -20,21 +77,7 @@ margin:auto;
 padding:40px;
 }
 
-.navbar{
-position:sticky;
-top:0;
-background:#020617;
-padding:12px;
-text-align:center;
-z-index:1000;
-}
-
-.navbar a{
-margin:0 15px;
-color:white;
-font-weight:bold;
-text-decoration:none;
-}
+/* HEADER */
 
 .header{
 text-align:center;
@@ -43,44 +86,66 @@ text-align:center;
 .header img{
 width:180px;
 border-radius:50%;
-border:4px solid #38bdf8;
+border:3px solid #facc15;
+box-shadow:0 0 20px #facc15;
 margin-top:20px;
 }
 
-h1{
+/* TYPEWRITER */
+
+.typewriter{
 font-size:42px;
-margin-bottom:5px;
+margin-bottom:10px;
 }
 
-h2{
-color:#38bdf8;
-margin-top:50px;
-}
-
-.skill-category{
-color:white;
-font-size:18px;
-font-weight:bold;
-margin-top:25px;
-}
+/* TAGLINE */
 
 .tagline{
 font-size:18px;
-color:#cbd5f5;
+color:#eab308;
 }
+
+/* ABOUT CARD */
+
+.about-card{
+background:rgba(0,0,0,0.6);
+border:1px solid #facc15;
+padding:20px;
+margin-top:20px;
+border-radius:8px;
+}
+
+/* HEADINGS */
+
+h2{
+color:#facc15;
+margin-top:50px;
+text-shadow:0 0 5px #facc15;
+}
+
+.skill-category{
+margin-top:25px;
+font-size:18px;
+font-weight:bold;
+}
+
+/* SKILLS */
 
 .skills span{
 display:inline-block;
-background:#1e293b;
+background:#000;
+border:1px solid #facc15;
 padding:10px 16px;
 margin:6px;
 border-radius:6px;
-font-size:14px;
+transition:0.2s;
 }
 
-.job{
-margin-bottom:25px;
+.skills span:hover{
+box-shadow:0 0 10px #facc15;
 }
+
+/* PROJECTS */
 
 .project-grid{
 display:grid;
@@ -90,28 +155,28 @@ margin-top:20px;
 }
 
 .project-card{
-background:#1e293b;
+background:#000;
 padding:20px;
 border-radius:10px;
-transition:0.3s;
-cursor:pointer;
+border:1px solid #facc15;
+transition:0.2s;
 }
 
 .project-card:hover{
-background:#334155;
 transform:scale(1.03);
+box-shadow:0 0 15px #facc15;
 }
 
 .project-card a{
+color:#facc15;
 text-decoration:none;
-color:white;
 font-weight:bold;
-display:block;
 }
 
-a{
-color:#38bdf8;
-text-decoration:none;
+/* JOB */
+
+.job{
+margin-bottom:25px;
 }
 
 </style>
@@ -119,6 +184,9 @@ text-decoration:none;
 </head>
 
 <body>
+
+<canvas id="matrix"></canvas>
+<div class="scanlines"></div>
 
 <div class="navbar">
 
@@ -135,7 +203,7 @@ text-decoration:none;
 
 <div class="header" id="about">
 
-<h1>Punit Kumar Beura</h1>
+<h1 class="typewriter" id="typing"></h1>
 
 <img src="file_00000000df5472069a522d7f454e91be (1).png">
 
@@ -143,13 +211,21 @@ text-decoration:none;
 Data Scientist | Machine Learning | Advanced Analytics
 </p>
 
+<div class="about-card">
+
 <p>
 Punit Kumar Beura is a data analytics professional transitioning into Data Science with over six years of experience across consulting, e-commerce, and enterprise environments. He completed his B.Tech in Mechanical Engineering from IIT Kharagpur with a CGPA of 8.2 after achieving a CGPA of 10 in 10th grade and 93.8 percent in 12th grade.
+</p>
 
+<p>
 Over the years he has worked with organizations including Bosch Rexroth, Amazon, McKinsey & Company, Mahindra & Mahindra, and Wipro, developing deep expertise in analytics, experimentation, and business intelligence. His work focuses on transforming complex datasets into actionable insights using tools such as Python, Machine Learning frameworks, SQL, Power BI, Tableau, and Adobe Analytics.
+</p>
 
+<p>
 He is passionate about building intelligent analytical systems, applying machine learning to real world problems, and enabling strategic decision making through data driven insights.
 </p>
+
+</div>
 
 </div>
 
@@ -158,7 +234,7 @@ He is passionate about building intelligent analytical systems, applying machine
 <div class="skills">
 
 <div class="skill-category">Programming & Databases</div>
-<span>Python (Numpy, Pandas, Pytorch, Seaborn) </span>
+<span>Python (Numpy, Pandas, Pytorch, Seaborn)</span>
 <span>SQL</span>
 <span>Snowflake</span>
 
@@ -211,134 +287,69 @@ Work In Progress ....
 
 </div>
 
-<div class="job">
-
-<b>Mahindra & Mahindra</b><br>
-<i>December 2024 – August 2025</i>
-
-<p>
-Led data analytics and MIS automation initiatives, developing scalable reporting frameworks and executive dashboards for senior leadership. Delivered data driven insights on supply chain performance, cost optimization, and operational efficiency through advanced analytical models.
-</p>
-
 </div>
 
-<div class="job">
+<script>
 
-<b>McKinsey & Company</b><br>
-<i>August 2023 – August 2025</i>
+/* TYPEWRITER EFFECT */
 
-<p>
-Built advanced analytics dashboards and customer funnel intelligence systems leveraging Adobe Analytics, Google Analytics, and Qlik Sense. Transformed complex CRM and behavioral datasets into actionable insights supporting consulting strategy and business growth.
-</p>
+const text = "Punit Kumar Beura";
+let i = 0;
 
-</div>
+function type(){
+if(i < text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(type,100);
+}
+}
 
-<div class="job">
+type();
 
-<b>Amazon Development Center</b><br>
-<i>August 2021 – July 2023</i>
+/* MATRIX BACKGROUND */
 
-<p>
-Performed large scale data analysis to identify pricing dynamics, revenue drivers, and catalog optimization opportunities across marketplace datasets. Developed analytical dashboards supporting pricing strategy, vendor decision intelligence, and operational performance monitoring.
-</p>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
 
-</div>
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
 
-<div class="job">
+const letters = "01";
+const fontSize = 14;
 
-<b>Bosch Rexroth</b><br>
-<i>August 2019 – August 2021</i>
+const columns = canvas.width / fontSize;
 
-<p>
-Developed product analytics dashboards and performance monitoring frameworks to analyze operational trends and customer behavior patterns. Generated data driven insights enabling product improvement strategies and informed business decision making.
-</p>
+const drops = [];
 
-</div>
+for(let x = 0; x < columns; x++)
+drops[x] = 1;
 
-<h2 id="projects">Samples & Projects</h2>
+function draw(){
 
-<div class="project-grid">
+ctx.fillStyle = "rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
 
-<div class="project-card">
-<a href="https://drive.google.com/drive/folders/1j1bcnCgIbfkTPb0wGjMZf_2hFMG_VrrK">
-No Copyright Free Bundle Templates (Self Creation)
-</a>
-</div>
+ctx.fillStyle = "#facc15";
+ctx.font = fontSize + "px monospace";
 
-<div class="project-card">
-<a href="https://docs.google.com/document/d/1Gae1LinMAu1PyCI-5cy4ZylX5IgXchIK/edit">
-Machine Learning Based Cholera Outbreak Risk Analysis Riyadh 2023
-</a>
-</div>
+for(let i = 0; i < drops.length; i++){
 
-<div class="project-card">
-<a href="https://www.ccbp.in">
-Freelancing Built Website – NXTWave
-</a>
-</div>
+const text = letters.charAt(Math.floor(Math.random()*letters.length));
 
-<div class="project-card">
-<a href="https://docs.google.com/presentation/d/1ilI6X-kk4iW1M0JH5gupDHrB7piIDkJ_0HY6wPwNRPI/edit">
-Freelancing (IRCTC) Product Strategy Case Study
-</a>
-</div>
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
 
-<div class="project-card">
-<a href="https://docs.google.com/presentation/d/1YHNdmUyQp7Sedyk8FLKDFCgfl-5fXvKB/edit">
-Freelancing (Kapture) Business Strategy Analysis
-</a>
-</div>
+if(drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+drops[i] = 0;
 
-<div class="project-card">
-<a href="https://drive.google.com/file/d/1FKmUc5OK2zxBFstifMeMRax-rk_3cC1X/view">
-Freelancing (Matter Motors) Business Case Overview
-</a>
-</div>
+drops[i]++;
 
-<div class="project-card">
-<a href="https://drive.google.com/file/d/1tfFooKMJZoP_E8Jt51I1C34wplyw3dfE/view">
-Power BI Dashboard – Thar Roxx Capacity Dashboard
-</a>
-</div>
+}
 
-</div>
+}
 
-<h2 id="achievements">Achievements</h2>
+setInterval(draw,33);
 
-<p>Google Hackathon 2019 — Ranked 252</p>
-
-<p>Approved Patent Holder — Mahindra XE9E, Mahindra XE6E & Thar Roxx UI/UX Design</p>
-
-<p>
-Filed Patent Holder — Institute Of Universal Physics  
-Article: "Unified Nucleocosmic Consciousness: A Theory of Atomic Unity and Global Oneness"
-</p>
-
-<h2>Education</h2>
-
-<p>PGDM Strategy & Leadership — IMT Ghaziabad</p>
-
-<p>B.Tech Mechanical Engineering — IIT Kharagpur</p>
-
-<h2 id="contact">Contact</h2>
-
-<p>Email: punitbeura@gmail.com</p>
-
-<p>
-LinkedIn:
-<a href="https://www.linkedin.com/in/punit-kumar-beura-a02771109">
-View LinkedIn Profile
-</a>
-</p>
-
-<p>
-GitHub:
-<a href="https://github.com/punitkumarbeura">
-github.com/punitkumarbeura
-</a>
-</p>
-
-</div>
+</script>
 
 </body>
-</html>
+  </html>
